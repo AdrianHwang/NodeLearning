@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/AdrianHwang/NodeLearning#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "express4-handlebars": "^0.2.0"
   }
 }
