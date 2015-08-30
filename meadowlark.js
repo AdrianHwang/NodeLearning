@@ -4,7 +4,18 @@ var app =  express();
 //设置运行端口
 app.set('port', process.env.PORT || 3000);
 
-//定制404页面
+//加上路由 注意如果没有设置状态码, 默认返回的状态码是200
+app.get('/', function(req,res){
+	res.type('text/plain');
+	res.send('这是一个旅游网站');
+})
+
+app.get('/about', function(req, res){
+	res.type('text/plain');
+	res.send('这是关于我页面');
+})
+
+//定制404页面 app.use是express中间件的一种方法
 app.use(function(req, res){
 	res.type('text/plain');
 	res.status(404);
