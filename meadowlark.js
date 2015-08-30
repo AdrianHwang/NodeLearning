@@ -1,6 +1,9 @@
 var express = require('express');
 var app =  express();
 
+//设置express静态文件路径
+app.use(express.static(__dirname + '/public'));
+
 
 //加入handlebars模板引擎 注意
 var handlebars = require('express3-handlebars').create({defaultLayout: 'layout'});
@@ -30,7 +33,6 @@ app.use(function(req, res){
 //定制500页面
 app.use(function(err, req, res, next){
 	console.log(err.stack);
-	
 	res.status(500);
 	res.render('500');
 });
