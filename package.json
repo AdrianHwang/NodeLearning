@@ -1,0 +1,25 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "This is a trip website",
+  "scripts": {
+    "start": "node meadowlark.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianHwang/NodeLearning.git"
+  },
+  "keywords": [
+    "No",
+    "Thanks"
+  ],
+  "author": "AdrianHwang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdrianHwang/NodeLearning/issues"
+  },
+  "homepage": "https://github.com/AdrianHwang/NodeLearning#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
