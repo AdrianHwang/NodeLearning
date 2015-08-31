@@ -1,5 +1,6 @@
 var express = require('express');
 var app =  express();
+var fortune = require('./lib/fortune.js');
 
 //设置express静态文件路径
 app.use(express.static(__dirname + '/public'));
@@ -14,22 +15,11 @@ app.set('view engine', 'handlebars');
 //设置运行端口
 app.set('port', process.env.PORT || 3000);
 
-// 设置一个数组, 供随机抽取
-var fortunes = [
-	'战胜他们或被他们战胜',
-	'不积小流,无以成江海',
-	'不要害怕未知的东西',
-	'你会有一个大惊喜',
-	'无论何时, 做到简单就行'
-];
-
 // 添加测试路由
 app.use(function(req,res,next){
 	res.locals.showTests = (app.get('evn') !=='production' && req.query.test === '1');
 	next();
 })
-
-
 
 //加上路由 注意如果没有设置状态码, 默认返回的状态码是200
 app.get('/', function(req,res){
@@ -37,8 +27,7 @@ app.get('/', function(req,res){
 })
 
 app.get('/about', function(req, res){
-	var randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-	res.render('about', {randomFortune: randomFortune});
+	res.render('about', {fortune: fortune.getFortune()});
 })
 
 //定制404页面 app.use是express中间件的一种方法
