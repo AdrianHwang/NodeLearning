@@ -21,7 +21,15 @@ var fortunes = [
 	'不要害怕未知的东西',
 	'你会有一个大惊喜',
 	'无论何时, 做到简单就行'
-]
+];
+
+// 添加测试路由
+app.use(function(req,res,next){
+	res.locals.showTests = (app.get('evn') !=='production' && req.query.test === '1');
+	next();
+})
+
+
 
 //加上路由 注意如果没有设置状态码, 默认返回的状态码是200
 app.get('/', function(req,res){
