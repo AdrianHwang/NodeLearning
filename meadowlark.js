@@ -27,7 +27,10 @@ app.get('/', function(req,res){
 })
 
 app.get('/about', function(req, res){
-	res.render('about', {fortune: fortune.getFortune()});
+	res.render('about', {
+		fortune: fortune.getFortune(),
+		pageTestScript: "/qa/tests-about.js"
+	});
 })
 
 //定制404页面 app.use是express中间件的一种方法
