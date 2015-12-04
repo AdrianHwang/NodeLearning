@@ -14,10 +14,11 @@ function serveStaticFild(res, path, contenttype, responsecode){
 	})
 }
 
-
 http.createServer(function(req, res){
 	var path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase();
 	switch(path){
+		case '/index':
+		case '/home':
 		case '':
 			serveStaticFild(res, '/public/home.html', 'text/html');
 			break;
@@ -30,7 +31,6 @@ http.createServer(function(req, res){
 		default:
 			serveStaticFild(res, '/public/notfound.html', 'text/html', 404);
 			break;
-
 	}
 }).listen(3000);
 
